@@ -1,0 +1,61 @@
+swapC = 0
+compC = 0
+def read_nums():
+    """Read numbers from input and return them in a list"""
+    return [int(num) for num in input().split()]
+
+def print_nums(nums):
+    """Output numbers, separating each item by a spaces;
+    no space or newline before the first number or after the last."""
+    print(' '.join([str(n) for n in nums]), end='')
+
+def swap(nums, n, m):
+    """Exchange nums[n] and nums[m]"""
+    nums[n], nums[m] = nums[m], nums[n]
+
+def insertion_sort(numbers):
+    global compC, swapC
+    """Sort the list numbers using insertion sort"""
+    # TODO: Count comparisons and swaps. Output the array at the end of each iteration.
+    #comp = 0
+    #swaps = 0
+    
+    for i in range(1, len(numbers)):
+        j = i
+        # Insert numbers[i] into sorted part
+        # stopping once numbers[i] is in correct position
+        while j > 0 and numbers[j] < numbers[j - 1]:
+            swap(numbers, j, j - 1)
+            j -= 1
+            compC += 1
+            swapC += 1
+            
+            #j -= 1
+            
+        if(j>0):
+            compC += 1
+        
+        print_nums(numbers)
+        #print(f"Comparisons: {comp}, swaps: {swaps}")
+        print()
+       
+    #print(f"\ncomparisons: {comp}")
+    #print(f"swaps: {swaps}")
+    #return comp, swaps
+
+if __name__ == '__main__':
+    # Step 1: Read numbers into a list
+    numbers = read_nums()
+
+    # Step 2: Output the numbers list
+    print_nums(numbers);
+    print(end='\n\n')
+
+    # Step 3: Sort the numbers list
+    insertion_sort(numbers)
+    print()
+    
+    # Step 4: TODO: Output the number of comparisons and swaps performed
+    #print(f"Total Comparisons: {comp}, Total Swaps: {swaps}")
+    print("comparisons:", compC)
+    print("swaps:", swapC)
