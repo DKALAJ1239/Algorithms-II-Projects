@@ -1,0 +1,29 @@
+# Type your code here.
+
+def desc_select_sort(numbers):
+    #print(numbers)
+    for i in range(len(numbers) - 1):
+        index_largest = i
+        for j in range(i + 1, len(numbers)):
+            if numbers [j] > numbers[index_largest]:
+                index_largest = j
+        if index_largest != i:
+            numbers[i], numbers[index_largest] = numbers[index_largest], numbers[i]
+        print (numbers)
+numbers = list(map(int, input().split()))
+desc_select_sort(numbers)            
+#numbers = [40, 10, 30, 20]  
+
+#print('UNSORTED:', end=' ')
+#for num in numbers:
+#    print(str(num), end=' ')
+#print()
+
+#desc_select_sort(numbers)
+#print('SORTED:', end=' ')
+#for num in numbers:
+#    print(str(num), end=' ')
+#print()
+
+#numbers = [7, 8, 3]
+#desc_select_sort(numbers)
